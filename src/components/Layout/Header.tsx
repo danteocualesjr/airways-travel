@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
@@ -18,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Destinations', href: '#destinations' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Home', href: '/' },
+    { name: 'How It Works', href: '/how-it-works' },
+    { name: 'Destinations', href: '/#destinations' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'FAQ', href: '/#faq' },
   ];
   
   return (
@@ -37,21 +38,21 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-display font-bold text-navy-900">Airways</span>
               <span className="text-2xl font-display font-bold text-sky-500">.</span>
-            </a>
+            </Link>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a 
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-sm font-medium text-navy-700 hover:text-sky-600 transition-all-300"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
           
@@ -87,10 +88,10 @@ const Header = () => {
       >
         <div className="flex flex-col h-full p-6">
           <div className="flex justify-between items-center mb-8">
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-display font-bold text-navy-900">Airways</span>
               <span className="text-2xl font-display font-bold text-sky-500">.</span>
-            </a>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="focus:outline-none"
@@ -101,14 +102,14 @@ const Header = () => {
           
           <nav className="flex flex-col space-y-6 mb-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-lg font-medium text-navy-900 hover:text-sky-600 transition-all-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
           
