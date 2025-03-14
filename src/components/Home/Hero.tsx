@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Globe, Search, PlaneTakeoff } from "lucide-react";
+import { ChevronRight, ArrowRight, Globe, Search, PlaneTakeoff, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Hero = () => {
