@@ -1,12 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
+import Hero from '@/components/Home/Hero';
+import PointsCalculator from '@/components/Home/PointsCalculator';
+import Destinations from '@/components/Home/Destinations';
+import Features from '@/components/Home/Features';
+import Newsletter from '@/components/Home/Newsletter';
+import FAQ from '@/components/Home/FAQ';
 
 const Index = () => {
+  useEffect(() => {
+    // Smooth scroll to section when URL has hash
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      
+      <main className="flex-grow">
+        <Hero />
+        <PointsCalculator />
+        <Destinations />
+        <Features />
+        <Newsletter />
+        <FAQ />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
